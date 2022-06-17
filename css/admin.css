@@ -25,6 +25,61 @@ version :1.0;
     clear: both;
 }
 
+.tbl-full {
+    width: 100%;
+}
+
+.tbl-30 {
+    width: 30%;
+    ;
+}
+
+table tr th {
+    border-bottom: 1px solid black;
+    padding: 1%;
+    text-align: left;
+}
+
+table tr th {
+    padding: 1%;
+}
+
+.btn-primary {
+    background-color: #1e90ff;
+    padding: 1%;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    background-color: #3742fa;
+}
+
+.btn-secondary {
+    background-color: #7bed9f;
+    padding: 1%;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-secondary:hover {
+    background-color: #3742fa;
+}
+
+.btn-danger {
+    background-color: orangered;
+    padding: 1%;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-danger:hover {
+    background-color: red;
+}
+
 
 /* css for menu*/
 
