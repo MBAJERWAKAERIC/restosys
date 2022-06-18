@@ -37,3 +37,18 @@
 
 <?php include( 'partials/footer.php' );
 ?>
+
+<?php
+// prosecc the value from form and save it in db
+// check whether the submit btn is clicked or not
+
+if ( isset( $_POST[ 'submit' ] ) )
+ {
+    //btn clicked
+    echo 'button clicked';
+
+} else {
+    //btn not clicked
+    echo 'Button not clicked';
+}
+?>
