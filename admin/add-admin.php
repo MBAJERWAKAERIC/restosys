@@ -19,8 +19,8 @@
                 </tr>
 
                 <tr>
-                    <td>Full name</td>
-                    <td><input type='text' name='full_name' placeholder='enter your name'></td>
+                    <td>password</td>
+                    <td><input type='password' name='password' placeholder='enter password'></td>
                 </tr>
 
                 <tr>
@@ -45,10 +45,11 @@
 if ( isset( $_POST[ 'submit' ] ) )
  {
     //btn clicked
-    echo 'button clicked';
+    //echo 'button clicked';
 
-} else {
-    //btn not clicked
-    echo 'Button not clicked';
+    // get the data from form
+
+    echo $full_name = $_POST[ 'full_name' ];
+
 }
 ?>
