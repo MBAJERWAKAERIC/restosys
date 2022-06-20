@@ -13,6 +13,10 @@ if ( isset( $_SESSION[ 'add' ] ) )
     unset( $_SESSION[ 'add' ] );
     //removing the session msg
 }
+
+if ( isset( $_SESSION[ 'delete' ] ) )
+echo $_SESSION[ 'delete' ];
+unset( $_SESSION[ 'delete' ] );
 ?>
         <br> <br>
         <!-- button to add admin -->
@@ -65,7 +69,8 @@ if ( $res == TRUE )
                 <td><?php echo $username;
             ?></td>
                 <td><a href='#' class='btn-secondary'>update admin</a>
-                <td><a href='#' class='btn-danger'>Delete admin</a>
+                    <a href='<?php echo SITEURL; ?>admin/delete-admin.php?id=<?php echo $id;?>'
+                        class='btn-danger'>Delete admin</a>
                 </td>
             </tr>
 

@@ -80,6 +80,10 @@ table tr th {
     background-color: red;
 }
 
+.success {
+    color: #2ed573;
+}
+
 
 /* css for menu*/
 
