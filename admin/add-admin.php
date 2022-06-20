@@ -1,10 +1,19 @@
 <?php include( 'partials/menu.php' );
 ?>
-
 <div class='main-content'>
     <div class='wrapper'>
         <h1>Add admin</h1>
-        <br>
+        <br />
+
+        <?php
+if ( isset( $_SESSION[ 'add' ] ) ) //checking wether the sesson is set or not
+ {
+    echo $_SESSION[ 'add' ];
+    // displaing the session msg if set
+    unset( $_SESSION[ 'add' ] );
+    //removing the session msg
+}
+?>
         <form action='' method='POST'>
 
             <table class='tbl-30'>
@@ -49,7 +58,38 @@ if ( isset( $_POST[ 'submit' ] ) )
 
     // get the data from form
 
-    echo $full_name = $_POST[ 'full_name' ];
+    $full_name = $_POST[ 'full_name' ];
+    $username = $_POST[ 'username' ];
+    $password = md5( $_POST[ 'password' ] );
+    //password ecription with md5
+
+    //2. SQL Query to save intp the dabase
+
+    $sql = "INSERT INTO tbl_admin SET
+        full_name='$full_name',
+        username='$username',
+        password='$password'";
+
+    //3. execute query and saving data into db
+    $res = mysqli_query( $conn, $sql ) or die( mysqli_error() );
+
+    //4. check wether the data is inserted or not and display appropriete msg
+    if ( $res == TRUE )
+ {
+        //DATA INSERTED
+        //echo 'data inserted';
+        //Creat a session variable to display msg
+        $_SESSION[ 'add' ] = 'Admin added Successfully';
+        //redirect page TO MANAGE ADMIN
+        header( 'location:'.SITEURL.'admin/manage-admin.php' );
+    } else {
+        //ailed to insert
+        // echo 'Failed to insert';
+        //Creat a session variable to display msg
+        $_SESSION[ 'add' ] = 'fail to add admin';
+        //redirect page TO add ADMIN
+        header( 'location:'.SITEURL.'admin/manage-admin.php' );
+    }
 
 }
 ?>
