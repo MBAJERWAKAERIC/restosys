@@ -77,7 +77,10 @@ if ( $res == TRUE )
             ?></td>
                 <td><?php echo $username;
             ?></td>
-                <td><a href='<?php echo SITEURL; ?>admin/update-admin.php?id=<?php echo $id;?>'
+                <td>
+                    <a href='<?php echo SITEURL; ?>admin/update-password.php?id=<?php echo $id;?>'
+                        class='btn-primary'>Change password</a>
+                    <a href='<?php echo SITEURL; ?>admin/update-admin.php?id=<?php echo $id;?>'
                         class='btn-secondary'>update admin</a>
                     <a href='<?php echo SITEURL; ?>admin/delete-admin.php?id=<?php echo $id;?>'
                         class='btn-danger'>Delete admin</a>

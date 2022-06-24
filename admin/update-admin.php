@@ -85,7 +85,10 @@ if ( isset( $_POST[ 'submit' ] ) )
     $res = mysqli_query( $conn, $sql );
 
     //check whether the query is executed successfully
-    if ( $res == TRUE ) 
+    if ( $res == TRUE )
+
+    /*I sugest if possible ;
+    let admin update his or her own profile*/
  {
         //qUERY EXECUTED AND ADMIN UPDATED
         $_SESSION[ 'update' ] = "<div class='success'>admin updated successfuly.</div>";
