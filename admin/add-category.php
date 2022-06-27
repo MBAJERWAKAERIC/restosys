@@ -96,6 +96,9 @@ if ( isset( $_POST[ 'submit' ] ) )
         //To upload the img we need the img name, src pth and destination path
         $image_name = $_FILES[ 'image' ][ 'name' ];
 
+        //Start from here
+        //Image renaming
+
         $source_path = $_FILES[ 'image' ][ 'tmp_name' ];
 
         $destination_path = '../images/category/'.$image_name;
