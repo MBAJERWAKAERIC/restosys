@@ -33,8 +33,7 @@ if ( isset( $_GET[ 'id' ] ) )
                 <tr>
                     <td>Confirm password:</td>
                     <td>
-                        <input type='password' name='confirm_passwor' name='confirm password'
-                            placeholder='confirm password'>
+                        <input type='password' name='confirm_password' placeholder='confirm password'>
                     </td>
                 </tr>
 
@@ -76,7 +75,41 @@ if ( isset( $_POST[ 'submit' ] ) )
         if ( $count == 1 )
  {
             //user exist and the paasord can be changed
-            echo 'user found';
+            //echo 'user found';
+            //check whether the password and the confirm password match
+            if ( $new_password == $confirm_password )
+ {
+                //Update the password
+                $sql2 = "UPDATE tbl_admin SET
+                    password='$new_password'
+                    WHERE id=$id
+                    ";
+
+                //execute the querry
+                $res2 = mysqli_query( $conn, $sql2 );
+
+                //Check whether the querry executed
+                if ( $res2 == TRUE )
+ {
+                    //Display success msg
+                    //Redirect to manage admin page with success msg
+                    $_SESSION[ 'change-pwd' ] = "<div class='success'>password changed successfully.</div>";
+                    //reirect user
+                    header( 'location:'.SITEURL. 'admin/manage-admin.php' );
+                } else {
+                    //Display error msg
+                    //Redirect to manage admin page with error msg
+                    $_SESSION[ 'change-pwd' ] = "<div class='error'>failed to change password.</div>";
+                    //reirect user
+                    header( 'location:'.SITEURL. 'admin/manage-admin.php' );
+                }
+
+            } else {
+                //Redirect to manage admin page with error msg
+                $_SESSION[ 'pwd-not-match' ] = "<div class='error'>password did not match.</div>";
+                //reirect user
+                header( 'location:'.SITEURL. 'admin/manage-admin.php' );
+            }
         } else {
             //user does not exit set msg and redirect
             $_SESSION[ 'user-not-found' ] = "<div class='error'>user not found.</div>";
