@@ -5,7 +5,15 @@
     <div class='wrapper'>
         <h1><strong>MANAGE CATEGORY</strong></h1>
 
-        <br />
+        <br /> <br>
+        <?php
+if ( isset( $_SESSION[ 'add' ] ) )
+ {
+    echo $_SESSION[ 'add' ];
+    unset( $_SESSION[ 'add' ] );
+}
+?>
+        <br><br>
         <!-- button to add admin -->
         <a href='<?php SITEURL;?>add-category.php' class='btn-primary'>ADD CATEGORY</a>
         <br /> <br /> <br /> <br />
