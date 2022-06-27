@@ -7,7 +7,7 @@
 
         <br />
         <!-- button to add admin -->
-        <a href='#' class='btn-primary'>ADD CATEGORY</a>
+        <a href='<?php SITEURL;?>add-category.php' class='btn-primary'>ADD CATEGORY</a>
         <br /> <br /> <br /> <br />
         <table class='tbl-full'>
             <tr>

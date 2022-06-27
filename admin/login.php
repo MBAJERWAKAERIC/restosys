@@ -22,6 +22,11 @@ if ( isset( $_SESSION[ 'login' ] ) )
     echo $_SESSION[ 'login' ];
     unset( $_SESSION[ 'login' ] );
 }
+if ( isset( $_SESSION[ 'no-login-message' ] ) )
+ {
+    echo $_SESSION[ 'no-login-message' ];
+    unset( $_SESSION[ 'no-login-message' ] );
+}
 ?>
         <br>
 
@@ -63,6 +68,9 @@ if ( isset( $_POST[ 'submit' ] ) )
  {
         //user availeble and login success
         $_SESSION[ 'login' ] = "<div class='success'>Login successfull.</div>";
+        //to check whether the useris logged in or not and log out will unset it
+        $_SESSION[ 'user' ] = $username;
+
         // redisrect to homme page/dashboard
         header( 'location:'.SITEURL.'admin/' );
     } else {
