@@ -17,10 +17,10 @@
         <h1 class='text-center'>Login</h1> <br><br>
 
         <?php
-if ( isset( $_SESSION[ 'Login' ] ) )
+if ( isset( $_SESSION[ 'login' ] ) )
  {
-    echo $_SESSION[ 'Login' ];
-    unset( $_SESSION[ 'Login' ] );
+    echo $_SESSION[ 'login' ];
+    unset( $_SESSION[ 'login' ] );
 }
 ?>
         <br>
@@ -47,7 +47,7 @@ if ( isset( $_POST[ 'submit' ] ) )
     //proccess for login
     //1. get the data from login form
     $username = $_POST[ 'username' ];
-    $password = $_POST[ 'password' ];
+    $password = md5( $_POST[ 'password' ] );
 
     // 2. sl to check whether the user with the username password exisist
     $sql = "SELECT * FROM tbl_admin WHERE username='$username' AND password='$password'";
@@ -67,7 +67,7 @@ if ( isset( $_POST[ 'submit' ] ) )
         header( 'location:'.SITEURL.'admin/' );
     } else {
         //user not availabe login fail
-        $_SESSION[ 'login' ] = "<div class='error'>username or password did not match.</div>";
+        $_SESSION[ 'login' ] = "<div class='error text-center'>username or password did not match.</div>";
         // redisrect to homme page/dashboard
         header( 'location:'.SITEURL.'admin/login.php' );
     }
