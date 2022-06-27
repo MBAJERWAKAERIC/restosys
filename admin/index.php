@@ -2,35 +2,46 @@
 ?>
 
 <!--Menu contents Section starts -->
-<div class = 'main-content'>
-<div class = 'wrapper'>
-<h1><strong>DASHBOARD</strong></h1>
-<div class = 'col-4 text-center'>
-<h1>5</h1>
-<br />
-Categories
-</div>
+<div class='main-content'>
+    <div class='wrapper'>
+        <h1><strong>DASHBOARD</strong></h1>
+        <br>
 
-<div class = 'col-4 text-center'>
-<h1>5</h1>
-<br />
-Categories
-</div>
+        <?php
+if ( isset( $_SESSION[ 'Login' ] ) )
+ {
+    echo $_SESSION[ 'Login' ];
+    unset( $_SESSION[ 'Login' ] );
+}
+?>
 
-<div class = 'col-4 text-center'>
-<h1>5</h1>
-<br />
-Categories
-</div>
+        <br>
+        <div class='col-4 text-center'>
+            <h1>5</h1>
+            <br />
+            Categories
+        </div>
 
-<div class = 'col-4 text-center'>
-<h1>5</h1>
-<br />
-Categories
-</div>
+        <div class='col-4 text-center'>
+            <h1>5</h1>
+            <br />
+            Categories
+        </div>
 
-<div class = 'clearfix'></div>
-</div>
+        <div class='col-4 text-center'>
+            <h1>5</h1>
+            <br />
+            Categories
+        </div>
+
+        <div class='col-4 text-center'>
+            <h1>5</h1>
+            <br />
+            Categories
+        </div>
+
+        <div class='clearfix'></div>
+    </div>
 </div>
 <!-- Menu contents section ends -->
 
