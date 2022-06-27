@@ -16,12 +16,18 @@ if ( isset( $_SESSION[ 'add' ] ) )
         <br> <br>
 
         <!-- Add category form stARTS-->
-        <form action='' method='POST'>
+        <form action='' method='POST' enctype='multipart/form-data'>
             <table class='tgl-30'>
                 <tr>
                     <td>Title</td>
                     <td>
                         <input type='text' name='title' placeholder='category tilte'>
+                    </td>
+                </tr>
+                <tr>
+                    <td> Select image</td>
+                    <td>
+                        <input type='file' name='image'>
                     </td>
                 </tr>
                 <tr>
@@ -73,6 +79,13 @@ if ( isset( $_POST[ 'submit' ] ) )
     } else {
         $active = 'No';
     }
+    // Check whethr th image is selected and set the valuefor image name accordingly
+    //print_r( $_FILES[ 'image' ] );
+
+    //break the code here
+    // die();
+
+    if ( isset( $_FILES[ 'image' ][ 'name' ] ) )
 
     //2. Creat SL query to insert category int db
     $sql = "INSERT INTO tbl_category SET
