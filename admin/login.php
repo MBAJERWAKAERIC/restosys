@@ -54,7 +54,7 @@ if ( isset( $_POST[ 'submit' ] ) )
     $username = $_POST[ 'username' ];
     $password = md5( $_POST[ 'password' ] );
 
-    // 2. sl to check whether the user with the username password exisist
+    // 2. sql to check whether the user with the username password exisist
     $sql = "SELECT * FROM tbl_admin WHERE username='$username' AND password='$password'";
 
     //3. execute the querry
