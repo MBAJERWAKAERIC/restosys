@@ -114,7 +114,6 @@ if ( isset( $_POST[ 'submit' ] ) )
             $_SESSION[ 'upload' ] = "<div class='error'> Failed to upload image. </div>";
             // redirect to add to category page
             header( 'location:' .SITEURL. 'admin/add-category.php' );
-
             //stop the process
             die();
         }
