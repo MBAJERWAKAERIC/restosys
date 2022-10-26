@@ -1,4 +1,5 @@
-<?php include( '../config/constants.php' );
+<?php include '../config/constants.php';
+//still trying
 ?>
 
 <!DOCTYPE html>
@@ -17,15 +18,13 @@
         <h1 class='text-center'>Login</h1> <br><br>
 
         <?php
-if ( isset( $_SESSION[ 'login' ] ) )
- {
-    echo $_SESSION[ 'login' ];
-    unset( $_SESSION[ 'login' ] );
+if (isset($_SESSION['login'])) {
+    echo $_SESSION['login'];
+    unset($_SESSION['login']);
 }
-if ( isset( $_SESSION[ 'no-login-message' ] ) )
- {
-    echo $_SESSION[ 'no-login-message' ];
-    unset( $_SESSION[ 'no-login-message' ] );
+if (isset($_SESSION['no-login-message'])) {
+    echo $_SESSION['no-login-message'];
+    unset($_SESSION['no-login-message']);
 }
 ?>
         <br>
@@ -47,37 +46,35 @@ if ( isset( $_SESSION[ 'no-login-message' ] ) )
 </html>
 <?php
 //check wheter the submit btn is clicked
-if ( isset( $_POST[ 'submit' ] ) )
- {
+if (isset($_POST['submit'])) {
     //proccess for login
     //1. get the data from login form
-    $username = $_POST[ 'username' ];
-    $password = md5( $_POST[ 'password' ] );
+    $username = $_POST['username'];
+    $password = md5($_POST['password']);
 
     // 2. sl to check whether the user with the username password exisist
     $sql = "SELECT * FROM tbl_admin WHERE username='$username' AND password='$password'";
 
     //3. execute the querry
-    $res = mysqli_query( $conn, $sql );
+    $res = mysqli_query($conn, $sql);
 
     //4. coont rows to check whether the user exisist
 
-    $count = mysqli_num_rows( $res );
+    $count = mysqli_num_rows($res);
 
-    if ( $count == 1 )
- {
+    if ($count == 1) {
         //user availeble and login success
-        $_SESSION[ 'login' ] = "<div class='success'>Login successfull.</div>";
+        $_SESSION['login'] = "<div class='success'>Login successfull.</div>";
         //to check whether the useris logged in or not and log out will unset it
-        $_SESSION[ 'user' ] = $username;
+        $_SESSION['user'] = $username;
 
         // redisrect to homme page/dashboard
-        header( 'location:'.SITEURL.'admin/' );
+        header('location:' . SITEURL . 'admin/');
     } else {
         //user not availabe login fail
-        $_SESSION[ 'login' ] = "<div class='error text-center'>username or password did not match.</div>";
+        $_SESSION['login'] = "<div class='error text-center'>username or password did not match.</div>";
         // redisrect to homme page/dashboard
-        header( 'location:'.SITEURL.'admin/login.php' );
+        header('location:' . SITEURL . 'admin/login.php');
     }
 }
 ?>
