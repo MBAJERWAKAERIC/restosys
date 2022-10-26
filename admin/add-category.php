@@ -114,16 +114,15 @@ if ( isset( $_POST[ 'submit' ] ) )
             $_SESSION[ 'upload' ] = "<div class='error'> Failed to upload image. </div>";
             // redirect to add to category page
             header( 'location:' .SITEURL. 'admin/add-category.php' );
-
             //stop the process
             die();
         }
     } else {
-        //don't upload the image and set the image_name valueas blank
+        //don't upload the image and set the image_name value as blank
         $image_name=""; 
     }
 
-    //2. Creat SL query to insert category int db
+    //2. Creat SL query to insert category into db
     $sql = "INSERT INTO tbl_category SET
     title= '$title',
     image_name='$image_name',
